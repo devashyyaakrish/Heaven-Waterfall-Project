@@ -86,7 +86,7 @@ JanSetu AI acts as a **digital helpdesk for public services** by combining:
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 User (Web/App)
 ↓
 Frontend (React / Next.js)
@@ -143,7 +143,7 @@ Notification Service (SMS / Email / Dummy API)
 
 ##  Team
 
-- Devashya Kothari
+- Devashya Kothari (Team Leader)
 - Arnav Aghniotri
 - Mayank Vishvas
 - Lakshya Panwar
