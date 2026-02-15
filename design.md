@@ -41,13 +41,15 @@ Authority Dashboard + Notification System
 
 ## Tech Stack
 
-**Frontend:** React + Tailwind CSS  
-**Backend:** Node.js + Express  
-**Database:** MongoDB Atlas  
-**Authentication:** Firebase Google Auth  
-**AI:** LLM API (Nova-compatible / OpenAI)  
-**Notifications:** Email API  
-**Deployment:** Vercel + Render  
+| Layer      | Tech Used                  |
+|------------|---------------------------|
+| Frontend   | React / Next.js           |
+| Backend    | Node.js / Express         |
+| Database   | MongoDB                   |
+| AI         | Amazon Nova / OpenAI      |
+| Auth       | Google OAuth              |
+| Cloud      | AWS / Firebase            |
+  
 
 ---
 
