@@ -1,204 +1,126 @@
-JanSetu AI – System Design Document
+# JanSetu AI – System Design
 
-1. Introduction
+## Problem
 
-JanSetu AI is an AI-powered full-stack web and mobile application designed to act as a digital helpdesk for government services. The platform enables citizens to report public issues, access welfare schemes, and receive AI-based assistance in local languages.
+Citizens face difficulty in reporting public issues due to:
+- Lack of awareness about where to complain
+- Complex and slow government processes
+- No centralized platform
+- Language barriers
 
-2. System Architecture
-High-Level Architecture
-Client (Web/App)
-        ↓
-API Gateway (Backend)
-        ↓
-AI Engine
-        ↓
-Database
-        ↓
-Authority Dashboard
+---
 
-Architecture Type:
+## Solution
 
-REST-based Microservice Architecture
+JanSetu AI is an AI-powered public service helpdesk that:
+- Enables easy complaint submission
+- Automatically classifies issues using AI
+- Assigns relevant government departments
+- Provides scheme information and guidance
+- Supports multilingual interaction
 
-Cloud-native deployment
+---
 
-3. Technology Stack
-Frontend:
+## System Architecture
 
-React.js (Web)
+User (Web App)
+   ↓
+React Frontend
+   ↓
+Firebase Authentication (Google Login)
+   ↓
+Node.js Backend (API Layer)
+   ↓
+AI Processing Layer (LLM API)
+   ↓
+MongoDB Database
+   ↓
+Authority Dashboard + Notification System
 
-Flutter (Mobile)
+---
 
-Tailwind CSS / Material UI
+## Tech Stack
 
-Backend:
+**Frontend:** React + Tailwind CSS  
+**Backend:** Node.js + Express  
+**Database:** MongoDB Atlas  
+**Authentication:** Firebase Google Auth  
+**AI:** LLM API (Nova-compatible / OpenAI)  
+**Notifications:** Email API  
+**Deployment:** Vercel + Render  
 
-Node.js
+---
 
-Express.js
+## AI Integration
 
-AI & NLP:
+AI is used to:
+- Classify complaints (Road, Water, Electricity, etc.)
+- Assign departments (PWD, Water Board, etc.)
+- Detect priority (High / Medium / Low)
+- Generate structured complaint text
 
-Python
+Note: Architecture is compatible with Amazon Nova models via Bedrock.
 
-Transformers / NLP Models
+---
 
-Multilingual Translation Model
+## Workflow
 
-Database:
+1. User logs in via Google
+2. User submits complaint
+3. AI processes and classifies complaint
+4. Department is assigned
+5. Complaint stored in database
+6. Notification sent (simulated)
+7. Authority updates status
 
-MongoDB (NoSQL)
+---
 
-Hosting:
+## Key Modules
 
-AWS / Azure / GCP
+- User Authentication
+- Complaint Management
+- AI Processing Engine
+- Authority Dashboard
+- Scheme Information Module
 
-Authentication:
+---
 
-OTP-based login
+## Scalability
 
-JWT Tokens
+- Cloud-based deployment
+- Modular API design
+- AI abstraction layer (model-agnostic)
+- Scalable database (MongoDB Atlas)
+- Future AWS Bedrock integration
 
-4. System Modules
-4.1 User Module
+---
 
-Aadhaar/Mobile Login
+## Security
 
-Language Selection
+- OAuth-based authentication
+- Token verification
+- Secure API handling
+- Environment variable protection
 
-Complaint Submission
+---
 
-Scheme Search
+## Prototype Scope
 
-4.2 Complaint Management Module
+- AI classification via API / lightweight model
+- Authority notification simulated
+- Government integration conceptual
 
-Complaint categorization
+---
 
-Image upload
+## Future Scope
 
-Geo-tagging
+- Voice-based complaint system
+- Full multilingual AI support
+- Real government API integration
+- Predictive analytics & heatmaps
 
-Status tracking
+---
 
-4.3 AI Engine Module
+## Conclusion
 
-Complaint classification (NLP)
-
-Department mapping
-
-Complaint format generation
-
-Language translation
-
-4.4 Authority Module
-
-Dashboard access
-
-Complaint filtering
-
-Status update
-
-Analytics
-
-5. Database Design
-Collections:
-Users
-
-user_id
-
-name
-
-mobile
-
-aadhaar_hash
-
-preferred_language
-
-Complaints
-
-complaint_id
-
-user_id
-
-category
-
-description
-
-image_url
-
-geo_location
-
-assigned_department
-
-status
-
-timestamp
-
-Schemes
-
-scheme_id
-
-name
-
-eligibility
-
-documents_required
-
-application_process
-
-6. AI Workflow
-
-User submits complaint
-
-Text sent to NLP model
-
-Model detects category
-
-Maps to appropriate department
-
-Complaint formatted professionally
-
-Backend forwards to authority
-
-7. Security Design
-
-Aadhaar stored in hashed format
-
-OTP verification system
-
-Role-based access control
-
-Encrypted API communication (HTTPS)
-
-Secure cloud storage
-
-8. Scalability Strategy
-
-Cloud-based deployment
-
-Load balancer support
-
-Horizontal scaling
-
-Microservice architecture
-
-Containerization using Docker
-
-9. Data Flow Diagram (Conceptual)
-User → Frontend → Backend → AI Engine → Database → Authority Dashboard
-
-10. Future Enhancements
-
-Voice-based complaint system
-
-SMS integration for rural users
-
-Predictive issue detection
-
-Heatmap analytics
-
-Integration with official government portals
-
-11. Conclusion
-
-JanSetu AI aims to bridge the gap between citizens and government authorities by leveraging AI, multilingual support, and automation to ensure transparent and efficient grievance redressal.
+JanSetu AI simplifies citizen-government interaction using AI and cloud technologies, making grievance redressal faster, accessible, and scalable.
